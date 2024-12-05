@@ -15,6 +15,12 @@ def decode(filename:str):
 
 def encode(filename:str):
     size, image = image_load(filename)
+    mask_size, mask = image_load('mask.jpg')
     result = image_new(size)
-    ###
+
+    for i in range(len(image)):
+        high_bits_image = high(image[i], 4)
+        high_bits_mask = high(mask[i], 4)
+        result[i] = high_bits_mask + (high_bits_image >> 4)
+
     image_save(result, size, f'{dossier_resultat}/resultat_encode.png')

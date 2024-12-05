@@ -1,4 +1,6 @@
 from scripts import decode, encode
 
 
-decode('exercices/message_x.png')
+encode('message.jpg')
+
+decode('resultat/resultat_encode.png')
